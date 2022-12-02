@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap");
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --dark-gray: hsl(0, 0%, 55%);
+  --very-dark-gray: hsl(0, 0%, 41%);
+
+  --fw-base: "Alata", sans-serif;
+  --fw-accent: "Josefin Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fw-base);
+}
+
+main {
+  max-width: 1440px;
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./images/desktop/image-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 140px 0;
+  height: 34rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .links a {
+  text-decoration: none;
+  color: var(--white);
+  margin-right: 20px;
+  position: relative;
+}
+
+nav .links a:last-child {
+  margin-right: 0;
+}
+
+nav .links a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: var(--white);
+  left: 0;
+  bottom: -2px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+nav .links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.backdrop {
+  display: none;
+}
+
+.menu-open,
+.menu-close {
+  display: none;
+}
+
+header .header-box {
+  margin: 6rem 0;
+}
+
+header .header-box h1 {
+  color: var(--white);
+  text-transform: uppercase;
+  font-family: var(--fw-accent);
+  font-weight: 300;
+  font-size: 60px;
+  line-height: 1;
+  /* background-color: aliceblue; */
+  max-width: 550px;
+  border: 0.125rem solid var(--white);
+  padding: 1.5rem 2rem;
+  letter-spacing: 2px;
+}
+
+.info {
+  min-height: 100vh;
+  padding: 8rem 140px 6rem;
+  position: relative;
+}
+
+.info .info-container {
+  position: relative;
+}
+
+.info .info-container .info-img {
+  max-width: 45.625rem;
+  min-height: 31.25rem;
+  position: relative;
+}
+
+.info .info-container .info-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("./images//desktop/image-interactive.jpg");
+}
+
+.info .info-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 32.5rem;
+  padding: 4rem 3rem;
+  padding-bottom: 0;
+  background-color: var(--white);
+}
+
+.info .info-text h1 {
+  font-weight: 300;
+  font-size: 34px;
+  font-family: var(--fw-accent);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.info .info-text p {
+  color: var(--dark-gray);
+  font-weight: 400;
+  font-size: 0.875rem;
+  font-family: var(--fw-base);
+  line-height: 1.6;
+}
+
+.creations {
+  padding: 3rem 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.creations h1 {
+  font-weight: 300;
+  font-size: 34px;
+  font-family: var(--fw-accent);
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.creations button {
+  border: 2px solid var(--very-dark-gray);
+  outline: none;
+  padding: 6px 8px;
+  width: 140px;
+  text-transform: uppercase;
+  background-color: transparent;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: var(--fw-base);
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+}
+
+.creations button:hover {
+  background-color: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+}
+
+.grid-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px;
+  padding: 1rem 140px 3rem;
+  margin-bottom: 3rem;
+}
+
+.grid-images .item {
+  position: relative;
+  cursor: pointer;
+}
+
+.grid-images .item.mobile {
+  display: none;
+}
+
+.grid-images .item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 3;
+}
+
+.grid-images .item .item-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.6rem 40px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  z-index: 4;
+}
+
+.grid-images .item .item-heading h2 {
+  color: var(--white);
+  font-family: var(--fw-accent);
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+footer {
+  background-color: var(--black);
+  padding: 3rem 140px;
+}
+
+footer .footer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+footer .footer-item:last-child {
+  margin-bottom: 0;
+}
+
+footer .footer-item .footer-logo {
+  height: 20px;
+}
+
+footer .footer-item img {
+  margin-right: 14px;
+  height: 20px;
+  cursor: pointer;
+}
+
+footer .footer-item img:last-child {
+  margin-right: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--white);
+  margin-right: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: var(--fw-base);
+}
+
+.footer-links a:last-child {
+  margin-right: 0;
+}
+
+footer .footer-item p {
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0;
+  }
+
+  header {
+    padding: 2rem 2.2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("./images/mobile/image-hero.jpg");
+    min-height: 100vh;
+  }
+
+  nav .logo {
+    z-index: 110;
+  }
+
+  nav .links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-100vh);
+    transition: all 1s ease;
+    opacity: 0;
+    background: hsl(0deg, 0%, 0%);
+    padding: 4.9375rem 2rem 0;
+    text-align: center;
+  }
+
+  nav .links.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  nav .links a {
+    text-transform: uppercase;
+    font-family: var(--fw-accent);
+    font-size: 24px;
+    margin-bottom: 24px;
+    margin-right: 0;
+  }
+
+  nav .links a:last-child {
+    margin-bottom: 0;
+  }
+
+  nav .links a::after {
+    content: none;
+  }
+
+  .menu-open {
+    display: block;
+  }
+
+  .menu-open.active {
+    display: none;
+  }
+
+  .menu-close {
+    display: none;
+  }
+
+  .menu-close.active {
+    display: block;
+    z-index: 100;
+  }
+
+  .backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    opacity: 0.2;
+    z-index: 98;
+  }
+
+  .backdrop.active {
+    display: block;
+  }
+
+  .info {
+    padding: 1rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info .info-container .info-img {
+    min-height: 20rem;
+    margin-bottom: 10px;
+  }
+
+  .info .info-container .info-img::after {
+    background-image: url("./images//mobile/image-interactive.jpg");
+  }
+
+  .info .info-text {
+    position: relative;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .creations {
+    padding: 40px 2.2rem 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .creations button {
+    display: none;
+  }
+
+  .grid-images {
+    padding: 1rem 2.2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .grid-images .item {
+    display: none;
+  }
+
+  .grid-images .item.mobile {
+    display: block;
+  }
+
+  .grid-images .item img {
+    height: 100%;
+    width: 100%;
+  }
+
+  footer {
+    padding: 2rem 2.2rem;
+    position: relative;
+  }
+
+  footer .footer-item {
+    flex-direction: column;
+  }
+
+  footer .footer-item .footer-logo {
+    margin-bottom: 10px;
+    height: 30px;
+  }
+
+  footer .footer-item .socials {
+    position: absolute;
+    bottom: 70px;
+  }
+
+  footer .footer-item .footer-links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+  }
+
+  footer .footer-item .footer-links a {
+    margin-right: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  footer .footer-item p {
+    font-size: 16px;
+    margin-top: 6px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  header .header-box h1 {
+    font-size: 40px;
+  }
+}
